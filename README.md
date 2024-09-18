@@ -13,7 +13,9 @@ npm run lint -- --fix (自動整理排版)
 VUE_APP_API = https://vue3-course-api.hexschool.io/
 VUE_APP_PATH = junhou-api
 ```
-$ const api = `${process.env.VUE_APP_API}api/user/check`;
-$ this.$http.post(api, this.user)
-$ .then((res) => {
-$ });
+```
+const api = `${process.env.VUE_APP_API}api/user/check`;
+  this.$http.post(api, this.user)
+    .then((res) => {
+  });
+```
