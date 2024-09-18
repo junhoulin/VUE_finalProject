@@ -4,7 +4,7 @@
       <div class="col-md-4 form-background ">
         <h1 class="h3 mb-4 font-weight-normal row justify-content-center">後台管理登入</h1>
         <div class="mb-3">
-          <label for="inputEmail" class="sr-only">電子郵件
+          <label for="inputEmail" class="sr-only mb-1">電子郵件
           <input
             type="email"
             id="inputEmail"
@@ -28,7 +28,7 @@
         </label>
         </div>
         <div class="text-end mt-4">
-          <button class="btn btn-md btn-primary" type="submit" @click.prevent="signIn">登入</button>
+          <button class="btn btn-md main-btn" type="submit" @click.prevent="signIn">登入</button>
         </div>
       </div>
     </form>
@@ -66,7 +66,9 @@ export default {
 <style lang="scss">
 $maincolor: #443;
 $border-radius: 95% 4% 97% 5% / 4% 94% 3% 95%;
+$border-radius-hover: 4% 95% 6% 95% / 95% 4% 92% 5%;
 $border: .2rem solid;
+$border-hover: .2rem dashed;
 
 form {
   color: $maincolor;
@@ -80,5 +82,16 @@ form {
     border-radius: $border-radius;
   }
 }
+
+.main-btn{
+    border: $border;
+    border-radius: $border-radius;
+    font-weight: 600;
+    &:hover{
+      border: $border-hover;
+      border-radius: $border-radius-hover;
+      transition: all .2s linear;
+    }
+  }
 
 </style>
