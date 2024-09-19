@@ -1,10 +1,18 @@
 <template>
-dsfsdfs
+  <Navbar></Navbar>
+  <div class="container-fluid">
+    <router-view/>
+  </div>
 </template>
 
 <script>
+import Navbar from '../components/NavBar.vue';
+
 export default {
   name: 'DashBoard',
+  components: {
+    Navbar,
+  },
   created() {
     const token = document.cookie
       .replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
@@ -19,3 +27,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+
+</style>

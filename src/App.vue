@@ -1,7 +1,4 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link>
-  </nav>
   <router-view/>
 </template>
 
@@ -9,7 +6,7 @@
 @import "./assets/all.scss";
 *{
   font-family: "Zen Maru Gothic", serif;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
 }
 </style>

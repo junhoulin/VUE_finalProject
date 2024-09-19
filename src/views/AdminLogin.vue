@@ -2,7 +2,7 @@
   <div class="container mt-5">
     <form class="row justify-content-center">
       <div class="col-md-4 form-background ">
-        <h1 class="h3 mb-4 font-weight-normal row justify-content-center">後台管理登入</h1>
+        <h1 class="h3 mb-4 font-weight-normal d-flex justify-content-center">後台管理登入</h1>
         <div class="mb-3">
           <label for="inputEmail" class="sr-only mb-1">電子郵件
           <input
@@ -54,8 +54,7 @@ export default {
           if (res.data.success) {
             const { token, expired } = res.data;
             document.cookie = `hexToken=${token}; expires=${new Date(expired)};`;
-            console.log(document.cookie);
-            this.$router.push('/dashboard');
+            this.$router.push('/dashboard/controlpd');
           }
         });
     },
@@ -69,6 +68,18 @@ $border-radius: 95% 4% 97% 5% / 4% 94% 3% 95%;
 $border-radius-hover: 4% 95% 6% 95% / 95% 4% 92% 5%;
 $border: .2rem solid;
 $border-hover: .2rem dashed;
+
+@mixin hover-border-radius() {
+  border: $border-hover;
+  border-radius: $border-radius-hover;
+  transition: all .2s linear;
+}
+
+@mixin border-radius() {
+  border: $border;
+  border-radius: $border-radius;
+  transition: all .2s linear;
+}
 
 form {
   color: $maincolor;
@@ -84,13 +95,10 @@ form {
 }
 
 .main-btn{
-    border: $border;
-    border-radius: $border-radius;
-    font-weight: 600;
+  @include border-radius();
+  font-weight: 600;
     &:hover{
-      border: $border-hover;
-      border-radius: $border-radius-hover;
-      transition: all .2s linear;
+      @include hover-border-radius()
     }
   }
 
