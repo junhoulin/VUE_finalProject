@@ -23,25 +23,30 @@
       <thead class="table-black">
         <tr>
           <th width="200">分類</th>
-          <th >商品名稱</th>
-          <th width="160">原價</th>
-          <th width="160">售價</th>
-          <th width="160">是否應用</th>
-          <th width="300">編輯</th>
+          <th width="200">商品名稱</th>
+          <th width="200">描述</th>
+          <th width="200">說明</th>
+          <th width="100">原價</th>
+          <th width="100">售價</th>
+          <th width="100">是否應用</th>
+          <th width="100">編輯</th>
         </tr>
       </thead>
-      <tbody class="table-striped">
+      <tbody class="table-striped" v-for="item in products" :key="item.id">
         <tr>
-          <td>分類</td>
-          <td>標題</td>
+          <td>{{item.category}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.content}}</td>
           <td class="text-right">
-            200
+            {{item.origin_price}}
           </td>
           <td class="text-right">
-            100
+            {{item.price}}
           </td>
           <td>
-            <span class="text-success">應用</span>
+            <span class="text-success" v-if="item.is_enabled">應用</span>
+            <span class="text-muted" v-else >未應用</span>
           </td>
           <td>
             <div class="btn-group">
@@ -58,7 +63,21 @@
 <script>
 export default {
   name: 'DashBoard',
+  data() {
+    return {
+      products: [],
+      pagination: {},
+    };
+  },
   methods: {
+    getProducts() {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products`;
+      this.$http.get(api)
+        .then((res) => {
+          this.products = res.data.products;
+          this.pagination = res.data.pagination;
+        });
+    },
     logout() {
       const api = `${process.env.VUE_APP_API}logout`;
       this.$http.post(api)
@@ -68,6 +87,10 @@ export default {
           }
         });
     },
+  },
+
+  created() {
+    this.getProducts();
   },
 
 };

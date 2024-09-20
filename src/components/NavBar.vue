@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">商品主頁</a>
+          <a class="nav-link" aria-current="page" href="#/dashboard/controlpd">商品主頁</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">訂單列表</a>
