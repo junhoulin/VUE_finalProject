@@ -4,6 +4,7 @@
 - 2024/09/18 串接、設計登入畫面
 - 2024/09/18 設計導覽列、製作登出功能、設計商品控制頁面
 - 2024/09/20 新增商品控制頁面功能v-for和getproducts()
+- 2024/09/23 商品新增功能、跳出視窗美版
 
 
 ## 🛠️常用指令:
@@ -17,7 +18,14 @@ VUE_APP_PATH = junhou-api
 ```
 ```
 const api = `${process.env.VUE_APP_API}api/user/check`;
-  this.$http.post(api, this.user)
+  this.$http.post(api)
     .then((res) => {
   });
+```
+- $props 和 $emit 功能要遵循前內後外的原則
+```
+// 內層
+click="$emit('update-product',tempProduct)"
+// 外層
+:product="tempProduct"  @update-product="updateProduct"
 ```

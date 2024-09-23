@@ -13,7 +13,8 @@
     </div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb mb-0">
-        <li class="breadcrumb-item" aria-current="page">商品列表</li>
+        <li class="breadcrumb-item"><a href="#" style="color: rgb(68, 68, 51,0.8);"
+          @click.prevent="openModal()">新增商品</a></li>
         <li class="breadcrumb-item"><a href="#" @click.prevent="logout">登出</a></li>
       </ol>
     </nav>
@@ -22,10 +23,10 @@
     <table class="table mt-4 table-bordered align-middle">
       <thead class="table-black">
         <tr>
-          <th width="200">分類</th>
-          <th width="200">商品名稱</th>
-          <th width="200">描述</th>
-          <th width="200">說明</th>
+          <th width="100">分類</th>
+          <th width="100">商品名稱</th>
+          <th width="250">描述</th>
+          <th width="250">說明</th>
           <th width="100">原價</th>
           <th width="100">售價</th>
           <th width="100">是否應用</th>
@@ -46,7 +47,7 @@
           </td>
           <td>
             <span class="text-success" v-if="item.is_enabled">應用</span>
-            <span class="text-muted" v-else >未應用</span>
+            <span class="text-success" v-else >未應用</span>
           </td>
           <td>
             <div class="btn-group">
@@ -58,16 +59,26 @@
       </tbody>
     </table>
   </div>
+  <ProductModal ref="ProductModal"
+  :product="tempProduct"
+  @update-product="updateProduct">
+  </ProductModal>
 </template>
 
 <script>
+import ProductModal from '@/components/ProductModal.vue';
+
 export default {
   name: 'DashBoard',
   data() {
     return {
       products: [],
+      tempProduct: {},
       pagination: {},
     };
+  },
+  components: {
+    ProductModal,
   },
   methods: {
     getProducts() {
@@ -84,6 +95,28 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.$router.push('/login');
+          }
+        });
+    },
+    openModal() {
+      this.tempProduct = {};
+      const productComponent = this.$refs.ProductModal;
+      productComponent.showModal();
+    },
+    hideModal() {
+      this.tempProduct = {};
+      const productComponent = this.$refs.ProductModal;
+      productComponent.hideModal();
+    },
+    updateProduct(item) {
+      this.tempProduct = item;
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product`;
+      this.$http.post(api, { data: this.tempProduct })
+        .then((res) => {
+          if (res.data.success) {
+            console.log(res);
+            this.hideModal();
+            this.getProducts();
           }
         });
     },

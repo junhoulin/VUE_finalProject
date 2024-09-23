@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
 
-$maincolor: #443;
+$maincolor:  rgba(48, 48, 48,);
 
 .navbar {
   box-shadow: 0 4px 8px rgba(48, 48, 48, 0.2);
