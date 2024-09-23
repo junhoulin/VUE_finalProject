@@ -14,7 +14,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb mb-0">
         <li class="breadcrumb-item"><a href="#" style="color: rgb(68, 68, 51,0.8);"
-          @click.prevent="openModal()">新增商品</a></li>
+          @click.prevent="openModal(true)">新增商品</a></li>
         <li class="breadcrumb-item"><a href="#" @click.prevent="logout">登出</a></li>
       </ol>
     </nav>
@@ -33,8 +33,8 @@
           <th width="100">編輯</th>
         </tr>
       </thead>
-      <tbody class="table-striped" v-for="item in products" :key="item.id">
-        <tr>
+      <tbody class="table-striped">
+        <tr v-for="item in products" :key="item.id">
           <td>{{item.category}}</td>
           <td>{{item.title}}</td>
           <td>{{item.description}}</td>
@@ -51,7 +51,8 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-outline-primary btn-sm">編輯</button>
+              <button class="btn btn-outline-primary btn-sm"
+              @click="openModal(false, item)">編輯</button>
               <button class="btn btn-outline-danger btn-sm">刪除</button>
             </div>
           </td>
@@ -75,6 +76,7 @@ export default {
       products: [],
       tempProduct: {},
       pagination: {},
+      isNew: false,
     };
   },
   components: {
@@ -98,8 +100,14 @@ export default {
           }
         });
     },
-    openModal() {
-      this.tempProduct = {};
+    openModal(isNew, item) {
+      if (isNew) {
+        this.tempProduct = {};
+        this.isNew = true;
+      } else {
+        this.tempProduct = { ...item };
+        this.isNew = false;
+      }
       const productComponent = this.$refs.ProductModal;
       productComponent.showModal();
     },
@@ -110,13 +118,19 @@ export default {
     },
     updateProduct(item) {
       this.tempProduct = item;
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product`;
-      this.$http.post(api, { data: this.tempProduct })
+      let api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product`;
+      let httpmethod = 'post';
+      if (!this.isNew) {
+        api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${item.id}`;
+        httpmethod = 'put';
+      }
+      this.$http[httpmethod](api, { data: this.tempProduct })
         .then((res) => {
           if (res.data.success) {
-            console.log(res);
             this.hideModal();
             this.getProducts();
+          } else {
+            console.log(res);
           }
         });
     },
