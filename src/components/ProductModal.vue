@@ -17,26 +17,24 @@
             <div class="mb-3">
               <label for="image" class="form-label">輸入圖片網址
               <input type="text" class="form-control" id="image"
-                placeholder="請輸入圖片連結">
+                placeholder="請輸入圖片連結" v-model="tempProduct.imageUrl">
               </label>
             </div>
             <div class="mb-3">
               <label for="customFile" class="form-label">或 上傳圖片
                 <i class="fas fa-spinner fa-spin"></i>
-              <input type="file" id="customFile" class="form-control">
+              <input type="file" id="customFile" class="form-control"
+              @change="uploadFile" ref="fileInput">
               </label>
             </div>
-            <img class="img-fluid" alt="">
+            <img class="img-fluid" alt="" :src="tempProduct.imageUrl">
             <!-- 延伸技巧，多圖 -->
             <div class="mt-5">
-              <div class="mb-3 input-group" >
+              <div class="mb-3 input-group">
                 <label for="url" class="form-label">
                   <input type="url" class="form-control form-control"
                           placeholder="請輸入連結" id="url">
                 </label>
-                <button type="button" class="btn btn-outline-danger">
-                  移除
-                </button>
               </div>
               <div>
                 <button class="btn btn-outline-primary btn-sm d-block w-100">
@@ -124,7 +122,7 @@
 </template>
 
 <script>
-import Modal from 'bootstrap/js/dist/modal';
+import modalMixin from '@/mixins/modalMixin';
 
 export default {
   data() {
@@ -148,16 +146,21 @@ export default {
   },
 
   methods: {
-    showModal() {
-      this.modal.show();
-    },
-    hideModal() {
-      this.modal.hide();
+    uploadFile() {
+      const uploadedFiled = this.$refs.fileInput.files[0];
+      const formData = new FormData();
+      formData.append('file-to-upload', uploadedFiled);
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/upload`;
+      this.$http.post(api, formData)
+        .then((res) => {
+          if (res.data.success) {
+            this.tempProduct.imageUrl = res.data.imageUrl;
+            this.$refs.fileInput.value = '';
+          }
+        });
     },
   },
-  mounted() {
-    this.modal = new Modal(this.$refs.modal);
-  },
+  mixins: [modalMixin],
 };
 </script>
 
@@ -175,6 +178,9 @@ $maincolor:  rgba(48, 48, 48, 0.4);
   textarea{
     border-width: 1px;
     border-color: $maincolor;
+  }
+  img{
+    width: 80%;
   }
 }
 </style>

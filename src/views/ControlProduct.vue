@@ -1,4 +1,5 @@
 <template>
+  <LoadingApp :active="isLoading"></LoadingApp>
   <div class="content d-flex justify-content-between align-items-center">
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle " type="button"
@@ -53,7 +54,8 @@
             <div class="btn-group">
               <button class="btn btn-outline-primary btn-sm"
               @click="openModal(false, item)">編輯</button>
-              <button class="btn btn-outline-danger btn-sm">刪除</button>
+              <button class="btn btn-outline-danger btn-sm"
+              @click="opendelProduct(item)">刪除</button>
             </div>
           </td>
         </tr>
@@ -64,10 +66,16 @@
   :product="tempProduct"
   @update-product="updateProduct">
   </ProductModal>
+  <DeleteModal ref="DeleteModal"
+  :product="tempProduct"
+  @delete-product="delproduct">
+  </DeleteModal>
+
 </template>
 
 <script>
 import ProductModal from '@/components/ProductModal.vue';
+import DeleteModal from '@/components/DeleteModal.vue';
 
 export default {
   name: 'DashBoard',
@@ -77,18 +85,22 @@ export default {
       tempProduct: {},
       pagination: {},
       isNew: false,
+      isLoading: false,
     };
   },
   components: {
     ProductModal,
+    DeleteModal,
   },
   methods: {
     getProducts() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products`;
+      this.isLoading = true;
       this.$http.get(api)
         .then((res) => {
           this.products = res.data.products;
           this.pagination = res.data.pagination;
+          this.isLoading = false;
         });
     },
     logout() {
@@ -129,8 +141,26 @@ export default {
           if (res.data.success) {
             this.hideModal();
             this.getProducts();
-          } else {
-            console.log(res);
+          }
+        });
+    },
+    opendelProduct(item) {
+      this.tempProduct = { ...item };
+      const productComponent = this.$refs.DeleteModal;
+      productComponent.showModal();
+    },
+    hidedelModal() {
+      this.tempProduct = {};
+      const productComponent = this.$refs.DeleteModal;
+      productComponent.hideModal();
+    },
+    delproduct(item) {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${item.id}`;
+      this.$http.delete(api)
+        .then((res) => {
+          if (res.data.success) {
+            this.hidedelModal();
+            this.getProducts();
           }
         });
     },
