@@ -1,5 +1,12 @@
 <template>
-  <LoadingApp :active="isLoading"></LoadingApp>
+  <LoadingApp :active="isLoading">
+    <div class="loadingio-spinner-double-ring-nq4q5u6dq7r"><div class="ldio-x2uulkbinbj">
+    <div></div>
+    <div></div>
+    <div><div></div></div>
+    <div><div></div></div>
+    </div></div>
+  </LoadingApp>
   <div class="content d-flex justify-content-between align-items-center">
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle " type="button"
@@ -105,10 +112,12 @@ export default {
     },
     logout() {
       const api = `${process.env.VUE_APP_API}logout`;
+      this.isLoading = true;
       this.$http.post(api)
         .then((res) => {
           if (res.data.success) {
             this.$router.push('/login');
+            this.isLoading = false;
           }
         });
     },

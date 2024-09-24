@@ -1,4 +1,12 @@
 <template>
+    <LoadingApp :active="isLoading">
+    <div class="loadingio-spinner-double-ring-nq4q5u6dq7r"><div class="ldio-x2uulkbinbj">
+    <div></div>
+    <div></div>
+    <div><div></div></div>
+    <div><div></div></div>
+    </div></div>
+  </LoadingApp>
   <div class="container mt-5">
     <form class="row justify-content-center">
       <div class="col-md-4 form-background ">
@@ -43,18 +51,21 @@ export default {
       user: {
         username: '',
         password: '',
+        isLoading: false,
       },
     };
   },
   methods: {
     signIn() {
       const api = `${process.env.VUE_APP_API}admin/signin`;
+      this.isLoading = true;
       this.$http.post(api, this.user)
         .then((res) => {
           if (res.data.success) {
             const { token, expired } = res.data;
             document.cookie = `hexToken=${token}; expires=${new Date(expired)};`;
             this.$router.push('/dashboard/controlpd');
+            this.isLoading = false;
           }
         });
     },
