@@ -1,17 +1,26 @@
 <template>
   <Navbar></Navbar>
+  <ToastMessage></ToastMessage>
   <div class="container-fluid">
     <router-view/>
   </div>
 </template>
 
 <script>
+import emitter from '@/methods/emitter';
+import ToastMessage from '@/components/ToastMessage.vue';
 import Navbar from '../components/NavBar.vue';
 
 export default {
   name: 'DashBoard',
   components: {
     Navbar,
+    ToastMessage,
+  },
+  provide() {
+    return {
+      emitter,
+    };
   },
   created() {
     const token = document.cookie

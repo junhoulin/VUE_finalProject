@@ -95,6 +95,7 @@ export default {
       isLoading: false,
     };
   },
+  inject: ['emitter'],
   components: {
     ProductModal,
     DeleteModal,
@@ -105,9 +106,16 @@ export default {
       this.isLoading = true;
       this.$http.get(api)
         .then((res) => {
-          this.products = res.data.products;
-          this.pagination = res.data.pagination;
-          this.isLoading = false;
+          if (res.data.success) {
+            this.products = res.data.products;
+            this.pagination = res.data.pagination;
+            this.isLoading = false;
+            this.emitter.emit('push-message', {
+              style: 'success',
+              title: '主頁更新成功',
+              content: '主頁已更新',
+            });
+          }
         });
     },
     logout() {
@@ -150,6 +158,11 @@ export default {
           if (res.data.success) {
             this.hideModal();
             this.getProducts();
+            this.emitter.emit('push-message', {
+              style: 'success',
+              title: '商品更新成功',
+              content: '商品已更新',
+            });
           }
         });
     },
@@ -170,6 +183,11 @@ export default {
           if (res.data.success) {
             this.hidedelModal();
             this.getProducts();
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '商品更新成功',
+              content: '商品已刪除',
+            });
           }
         });
     },

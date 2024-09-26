@@ -1,5 +1,5 @@
 <template>
-    <LoadingApp :active="isLoading">
+  <LoadingApp :active="isLoading">
     <div class="loadingio-spinner-double-ring-nq4q5u6dq7r"><div class="ldio-x2uulkbinbj">
     <div></div>
     <div></div>
@@ -51,8 +51,8 @@ export default {
       user: {
         username: '',
         password: '',
-        isLoading: false,
       },
+      isLoading: false,
     };
   },
   methods: {
