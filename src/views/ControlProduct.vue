@@ -48,10 +48,10 @@
           <td>{{item.description}}</td>
           <td>{{item.content}}</td>
           <td class="text-right">
-            {{item.origin_price}}
+            {{$filters.currency(item.origin_price)}}
           </td>
           <td class="text-right">
-            {{item.price}}
+            {{$filters.currency(item.price)}}
           </td>
           <td>
             <span class="text-success" v-if="item.is_enabled">應用</span>
@@ -69,6 +69,7 @@
       </tbody>
     </table>
   </div>
+  <PageNation :pages="pagination" @emit-pages="getProducts"></PageNation>
   <ProductModal ref="ProductModal"
   :product="tempProduct"
   @update-product="updateProduct">
@@ -83,9 +84,10 @@
 <script>
 import ProductModal from '@/components/ProductModal.vue';
 import DeleteModal from '@/components/DeleteModal.vue';
+import PageNation from '@/components/PageNation.vue';
 
 export default {
-  name: 'DashBoard',
+  name: 'ControlProduct',
   data() {
     return {
       products: [],
@@ -99,10 +101,11 @@ export default {
   components: {
     ProductModal,
     DeleteModal,
+    PageNation,
   },
   methods: {
-    getProducts() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products`;
+    getProducts(page = 1) {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products/?page=${page}`;
       this.isLoading = true;
       this.$http.get(api)
         .then((res) => {
