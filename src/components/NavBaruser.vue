@@ -20,12 +20,12 @@
           <a class="nav-link" href="#">聯絡我們</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">後台登入</a>
+          <a class="nav-link" href="#/login">後台登入</a>
         </li>
       </ul>
     </div>
+    <i class="shop2 fa-solid fa-cart-shopping fa-xl" style="color: #444433;;"></i>
   </div>
-  <i class="shop2 fa-solid fa-cart-shopping fa-xl" style="color: #444433;;"></i>
 </nav>
 </template>
 
@@ -64,16 +64,17 @@ $maincolor: rgba(48, 48, 48,);
     color: rgb(112, 112, 66);
   }
 }
+
 .shop1 {
   display: none;
 }
-.shop2 {
-  padding-right: 30px;
-}
 
+.shop2 {
+  margin-right: 40px;
+}
 @media (max-width: 992px) {
   .shop1 {
-    display:block;
+    display: block;
   }
   .shop2 {
     display: none;

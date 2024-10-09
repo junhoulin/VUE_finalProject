@@ -12,7 +12,7 @@
       <div class="col-md-4 form-background ">
         <h1 class="h3 mb-4 font-weight-normal d-flex justify-content-center">後台管理登入</h1>
         <div class="mb-3">
-          <label for="inputEmail" class="sr-only mb-1">電子郵件
+          <label for="inputEmail" class="labinput mb-1">電子郵件
             <input
               type="email"
               id="inputEmail"
@@ -24,16 +24,16 @@
           </label>
         </div>
         <div class="mb-2">
-          <label for="inputPassword" class="sr-only">密碼
-          <input
-            type="password"
-            id="inputPassword"
-            class="form-control"
-            placeholder="Password"
-            required
-            v-model="user.password"
-          />
-        </label>
+          <label for="inputPassword" class="labinput">密碼
+            <input
+              type="password"
+              id="inputPassword"
+              class="form-control"
+              placeholder="Password"
+              required
+              v-model="user.password"
+            />
+          </label>
         </div>
         <div class="text-end mt-4">
           <button class="btn btn-md main-btn" type="submit" @click.prevent="signIn">登入</button>
@@ -94,7 +94,7 @@ $border-hover: .2rem dashed;
 
 form {
   color: $maincolor;
-  label {
+  .labinput {
     width: 100%;
   }
   .form-background{
