@@ -22,6 +22,21 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/userindex',
+    name: 'userindex',
+    component: () => import('../views/UserIndex.vue'),
+    children: [
+      {
+        path: 'userproduct',
+        component: () => import('../views/UserProduct.vue'),
+      },
+      {
+        path: 'userintrodution',
+        component: () => import('../views/UserIntrodution.vue'),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

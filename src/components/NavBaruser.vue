@@ -1,6 +1,7 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid indexnavbar">
+    <i class="shop1 fa-solid fa-cart-shopping fa-xl" style="color: #444433;;"></i>
     <img class="navbarimg" src="../assets/logo.png" alt="" href="#">
     <button class="navbar-toggler" type="button"
     data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -10,20 +11,21 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#/dashboard/controlpd">商品主頁</a>
+          <a class="nav-link" aria-current="page" href="#/userindex/userintrodution">主頁介紹</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">訂單列表</a>
+          <a class="nav-link" href="#/userindex/userproduct">商品主頁</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">庫存管理</a>
+          <a class="nav-link" href="#">聯絡我們</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">優惠管理</a>
+          <a class="nav-link" href="#">後台登入</a>
         </li>
       </ul>
     </div>
   </div>
+  <i class="shop2 fa-solid fa-cart-shopping fa-xl" style="color: #444433;;"></i>
 </nav>
 </template>
 
@@ -34,8 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-
-$maincolor:  rgba(48, 48, 48,);
+$maincolor: rgba(48, 48, 48,);
 
 .navbar {
   box-shadow: 0 4px 8px rgba(48, 48, 48, 0.2);
@@ -49,7 +50,7 @@ $maincolor:  rgba(48, 48, 48,);
 
 .navbarimg {
   width: 100px;
-  margin-left: 10px;
+  transform: translateX(40px);
 }
 
 .nav-item {
@@ -57,16 +58,32 @@ $maincolor:  rgba(48, 48, 48,);
   border-bottom: 2px solid transparent;
   transition: border-color 0.3s;
   &:hover {
-    border-bottom:2px solid #443;
+    border-bottom: 2px solid #443;
   }
   a:hover {
-    color: rgb(112, 112, 66)
+    color: rgb(112, 112, 66);
   }
+}
+.shop1 {
+  display: none;
+}
+.shop2 {
+  padding-right: 30px;
 }
 
 @media (max-width: 992px) {
+  .shop1 {
+    display:block;
+  }
+  .shop2 {
+    display: none;
+  }
+  .navbarimg {
+  width: 100px;
+  transform: translateX(0px);
+  }
   .navbar-collapse {
-    transform: translateX(0px);
+  transform: translateX(0px);
   }
 }
 

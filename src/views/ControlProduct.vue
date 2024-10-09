@@ -113,11 +113,7 @@ export default {
             this.products = res.data.products;
             this.pagination = res.data.pagination;
             this.isLoading = false;
-            this.emitter.emit('push-message', {
-              style: 'success',
-              title: '主頁更新成功',
-              content: '主頁已更新',
-            });
+            this.$httpMessageState(res, '主頁');
           }
         });
     },

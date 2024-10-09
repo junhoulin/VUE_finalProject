@@ -13,15 +13,15 @@
         <h1 class="h3 mb-4 font-weight-normal d-flex justify-content-center">後台管理登入</h1>
         <div class="mb-3">
           <label for="inputEmail" class="sr-only mb-1">電子郵件
-          <input
-            type="email"
-            id="inputEmail"
-            class="form-control"
-            placeholder="Email address"
-            required
-            v-model="user.username"
-          />
-        </label>
+            <input
+              type="email"
+              id="inputEmail"
+              class="form-control"
+              placeholder="Email address"
+              required
+              v-model="user.username"
+            />
+          </label>
         </div>
         <div class="mb-2">
           <label for="inputPassword" class="sr-only">密碼
@@ -111,6 +111,6 @@ form {
     &:hover{
       @include hover-border-radius()
     }
-  }
+}
 
 </style>
