@@ -157,11 +157,7 @@ export default {
           if (res.data.success) {
             this.hideModal();
             this.getProducts();
-            this.emitter.emit('push-message', {
-              style: 'success',
-              title: '商品更新成功',
-              content: '商品已更新',
-            });
+            this.$httpMessageState(res, '場次變更');
           }
         });
     },
@@ -182,11 +178,7 @@ export default {
           if (res.data.success) {
             this.hidedelModal();
             this.getProducts();
-            this.emitter.emit('push-message', {
-              style: 'danger',
-              title: '商品更新成功',
-              content: '商品已刪除',
-            });
+            this.$httpMessageState(res, '場次刪除');
           }
         });
     },

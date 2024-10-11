@@ -24,7 +24,7 @@
         </li>
       </ul>
     </div>
-    <i class="shop2 fa-solid fa-cart-shopping fa-xl" style="color: #444433;;"></i>
+    <i class="shop2 fa-solid fa-cart-shopping fa-xl"></i>
   </div>
 </nav>
 </template>
@@ -67,10 +67,20 @@ $maincolor: rgba(48, 48, 48,);
 
 .shop1 {
   display: none;
+  color: #444433;
+  &:hover {
+    cursor: pointer;
+    color: #787858;
+  }
 }
 
 .shop2 {
   margin-right: 40px;
+  color: #444433;
+  &:hover {
+    cursor: pointer;
+    color: #787858;
+  }
 }
 @media (max-width: 992px) {
   .shop1 {

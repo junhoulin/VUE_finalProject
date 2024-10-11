@@ -1354,7 +1354,7 @@ $card-cap-padding-y:                $card-spacer-y * .5 !default;
 $card-cap-padding-x:                $card-spacer-x !default;
 $card-cap-bg:                       rgba(var(--#{$prefix}body-color-rgb), .03) !default;
 $card-cap-color:                    null !default;
-$card-height:                       null !default;
+$card-height:                       100% !default;
 $card-color:                        null !default;
 $card-bg:                           var(--#{$prefix}body-bg) !default;
 $card-img-overlay-padding:          $spacer !default;

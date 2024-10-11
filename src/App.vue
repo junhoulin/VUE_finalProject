@@ -8,5 +8,6 @@
   font-family: "Zen Maru Gothic", serif;
   font-weight: 500;
   font-style: normal;
+  cursor: url('./assets/pointer.ico'), auto;
 }
 </style>
