@@ -40,7 +40,7 @@
                     <i class="fa-solid fa-volleyball" style="color: #443;"></i>
                     {{item.category}}
                   </h5>
-                  <p class="card-text">{{item.description}}</p>
+                  <p class="card-text" v-html="formatContent(item.description)"></p>
                   <div class="d-flex justify-content-between">
                     <a href="#" class="btn btn-primary"
                     @click.prevent="getProduct(item.id)">觀看細節</a>
