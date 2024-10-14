@@ -40,9 +40,10 @@
                     <i class="fa-solid fa-volleyball" style="color: #443;"></i>
                     {{item.category}}
                   </h5>
-                  <p class="card-text">{{item.content}}</p>
+                  <p class="card-text">{{item.description}}</p>
                   <div class="d-flex justify-content-between">
-                    <a href="#" class="btn btn-primary">觀看細節</a>
+                    <a href="#" class="btn btn-primary"
+                    @click.prevent="getProduct(item.id)">觀看細節</a>
                     <a href="#" class="btn btn-danger">我要打球</a>
                   </div>
                 </div>
@@ -82,6 +83,13 @@ export default {
             this.$httpMessageState(res, '場次');
           }
         });
+    },
+    getProduct(id) {
+      this.$router.push(`/userindex/userproduct/${id}`);
+    },
+    formatContent(content) {
+      if (!content) return '';
+      return content.replace(/\n/g, '<br>');
     },
   },
   created() {

@@ -7,11 +7,6 @@ const routes = [
     redirect: '/userindex/userintrodution',
   },
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/AdminLogin.vue'),
-  },
-  {
     path: '/dashboard',
     name: 'dashboard',
     component: () => import('../views/DashBoard.vue'),
@@ -34,6 +29,14 @@ const routes = [
       {
         path: 'userintrodution',
         component: () => import('../views/UserIntrodution.vue'),
+      },
+      {
+        path: 'adminlogin',
+        component: () => import('../views/AdminLogin.vue'),
+      },
+      {
+        path: 'userproduct/:productID',
+        component: () => import('../views/SingleProduct.vue'),
       },
     ],
   },
