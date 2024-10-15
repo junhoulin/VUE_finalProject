@@ -1,10 +1,15 @@
 <template>
   <div class="content">
     <h1>{{ displayedText }}<span class="cursor" v-if="isCursorVisible">_</span></h1>
+    <main>
+      <div id="container3D"></div>
+    </main>
   </div>
 </template>
 
 <script>
+import model3d from '../methods/model3d';
+
 export default {
   name: 'UserIntrodution',
   data() {
@@ -18,6 +23,9 @@ export default {
   mounted() {
     this.typeText();
     this.blinkCursor();
+    this.$nextTick(() => {
+    });
+    model3d();
   },
   methods: {
     typeText() {
@@ -30,7 +38,7 @@ export default {
     blinkCursor() {
       setInterval(() => {
         this.isCursorVisible = !this.isCursorVisible;
-      }, 400);
+      }, 1000);
     },
   },
 };
@@ -42,6 +50,20 @@ export default {
 }
 .cursor {
   font-weight: bold;
+  width: 100%;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+}
+
+#container3D {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 </style>
