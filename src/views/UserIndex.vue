@@ -1,7 +1,7 @@
 <template>
   <Navbar></Navbar>
   <ToastMessage></ToastMessage>
-  <div class="container-fluid">
+  <div>
     <router-view/>
   </div>
 </template>
@@ -26,5 +26,4 @@ export default {
 </script>
 
 <style lang="scss">
-
 </style>

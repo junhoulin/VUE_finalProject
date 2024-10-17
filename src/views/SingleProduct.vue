@@ -19,7 +19,7 @@
           <p v-html="formatContent(product.content)"></p>
           <div class="d-flex justify-content-between align-items-center">
             <h3>定價: {{product.price}} /{{product.unit}}</h3>
-            <button class="btn btn-primary">加入購物車</button>
+            <button class="btn btn-primary">加入</button>
           </div>
         </div>
       </div>

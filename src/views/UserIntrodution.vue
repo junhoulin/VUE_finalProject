@@ -1,9 +1,14 @@
 <template>
-  <div class="content">
-    <h1>{{ displayedText }}<span class="cursor" v-if="isCursorVisible">_</span></h1>
-    <main>
-      <div id="container3D"></div>
-    </main>
+  <div class="allbackground">
+    <div class="row inrodution">
+      <div class="col-md-6">
+        <div id="container3D"></div>
+      </div>
+      <div class="col-md-6 undermd">
+        <h1>{{ displayedText }}<span class="cursor" v-if="isCursorVisible">_</span></h1>
+        <button class="btn btn-primary">一起打球!!</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,8 +29,9 @@ export default {
     this.typeText();
     this.blinkCursor();
     this.$nextTick(() => {
+      const container = document.getElementById('container3D');
+      model3d(container);
     });
-    model3d();
   },
   methods: {
     typeText() {
@@ -45,25 +51,63 @@ export default {
 </script>
 
 <style lang="scss">
-.content {
-  margin-top: 100px;
+.allbackground{
+  background-image: url('../assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  overflow: hidden;
 }
 .cursor {
   font-weight: bold;
   width: 100%;
+  color: white;
+}
+.inrodution {
+  height: 100vh;
+}
+.col-md-6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    font-size: 3.5em;
+    margin-top: 0;
+    color: white;
+  }
+  button {
+    margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    margin-left: 200px;
+    font-weight: 700;
+  }
+  #container3D {
+    width: 880px;
+    height:468px;
+    margin: 0 auto;
+  }
 }
 
-h1 {
-  font-size: 3em;
-  text-align: center;
+@media screen and (max-width: 768px) {
+  #container3D {
+    width: 160px !important;
+    height: 260px !important;
+  }
+  .col-md-6{
+    h1 {
+      font-size: 2.3em;
+    }
+    button {
+    width: 100px;
+    height: 50px;
+    margin: 20px auto;
+    font-weight: 700;
+  }
+  }
+  .undermd {
+    margin-top: -80%;
+  }
 }
-
-#container3D {
-  width: 100vw !important;
-  height: 100vh !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 </style>

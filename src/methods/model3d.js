@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-export default function model3d() {
+export default function model3d(container) {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -19,12 +19,16 @@ export default function model3d() {
   );
 
   const renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(container.clientWidth, container.clientHeight);
   document.getElementById('container3D').appendChild(renderer.domElement);
-  camera.position.z = 10;
+  if (container.clientWidth <= 160) {
+    camera.position.z = 10;
+  } else {
+    camera.position.z = 6;
+  }
 
   const topLight = new THREE.DirectionalLight(0xffffff, 3);
-  topLight.position.set(500, 500, 500);
+  topLight.position.set(500, 500, 1000);
   topLight.castShadow = true;
   scene.add(topLight);
 
@@ -33,21 +37,26 @@ export default function model3d() {
 
   const controls = new OrbitControls(camera, renderer.domElement);
 
+  const bounceSpeed = 0.03;
+  let bounceDirection = 1;
+
   function animate() {
     requestAnimationFrame(animate);
     if (object) {
-      object.rotation.y += 0.01;
-      object.rotation.x += 0.005;
+      object.position.y += bounceSpeed * bounceDirection;
+      if (object.position.y > 1 || object.position.y < -1) {
+        bounceDirection *= -1;
+      }
     }
-
-    controls.update(); // 更新控制器
+    controls.update();
     renderer.render(scene, camera);
   }
 
   window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.render(scene, camera);
   });
 
   animate();
