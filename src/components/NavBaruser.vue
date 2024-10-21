@@ -1,7 +1,12 @@
 <template>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid indexnavbar">
-    <i class="shop1 fa-solid fa-cart-shopping fa-xl" style="color: #444433;;"></i>
+    <a href="#/userindex/shoppingcart" class="shop1">
+      <span aria-hidden="true">
+        <i class="fa-solid fa-cart-shopping fa-xl"></i>
+      </span>
+      <span class="visually-hidden">前往購物車</span>
+    </a>
     <img class="navbarimg" src="../assets/logo.png" alt="" href="#">
     <button class="navbar-toggler" type="button"
     data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -24,7 +29,12 @@
         </li>
       </ul>
     </div>
-    <i class="shop2 fa-solid fa-cart-shopping fa-xl"></i>
+    <a href="#/userindex/shoppingcart" class="shop2">
+      <span aria-hidden="true">
+        <i class="fa-solid fa-cart-shopping fa-xl"></i>
+      </span>
+      <span class="visually-hidden">前往購物車</span>
+    </a>
   </div>
 </nav>
 </template>
@@ -45,7 +55,7 @@ $maincolor: rgba(48, 48, 48,);
 .navbar-collapse {
   display: flex;
   justify-content: center;
-  transform: translateX(-70px);
+  transform: translateX(-10px);
 }
 
 .navbarimg {

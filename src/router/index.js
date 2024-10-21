@@ -38,6 +38,10 @@ const routes = [
         path: 'userproduct/:productID',
         component: () => import('../views/SingleProduct.vue'),
       },
+      {
+        path: 'shoppingcart',
+        component: () => import('../views/ShoppingCart.vue'),
+      },
     ],
   },
 ];

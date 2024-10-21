@@ -44,7 +44,14 @@
                   <div class="d-flex justify-content-between">
                     <a href="#" class="btn btn-primary"
                     @click.prevent="getProduct(item.id)">觀看細節</a>
-                    <a href="#" class="btn btn-danger">我要打球</a>
+                    <a href="#" class="btn btn-danger"
+                    :class="{'disabled': this.status.LoadingItem === item.id}"
+                    @click.prevent="addProduct(item.id)">
+                    <div class="spinner-grow text-warning spinner-grow-sm" role="status"
+                    v-if="this.status.LoadingItem === item.id">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                    我要打球</a>
                   </div>
                 </div>
               </div>
@@ -64,6 +71,9 @@ export default {
       category: '123',
       products: [],
       isLoading: false,
+      status: {
+        LoadingItem: '',
+      },
     };
   },
   methods: {
@@ -87,6 +97,19 @@ export default {
     getProduct(id) {
       this.$router.push(`/userindex/userproduct/${id}`);
     },
+    addProduct(id) {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
+      this.status.LoadingItem = id;
+      const cart = {
+        product_id: id,
+        qty: 1,
+      };
+      this.$http.post(api, { data: cart })
+        .then((res) => {
+          this.status.LoadingItem = '';
+          console.log(res);
+        });
+    },
     formatContent(content) {
       if (!content) return '';
       return content.replace(/\n/g, '<br>');
@@ -104,5 +127,10 @@ export default {
 }
 .card {
   min-height: 360px;
+}
+.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 </style>

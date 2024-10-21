@@ -44,7 +44,7 @@ $maincolor:  rgba(48, 48, 48,);
 .navbar-collapse {
   display: flex;
   justify-content: center;
-  transform: translateX(-70px);
+  transform: translateX(-10px);
 }
 
 .navbarimg {

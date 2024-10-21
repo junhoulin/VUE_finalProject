@@ -6,7 +6,7 @@
       </div>
       <div class="col-md-6 undermd">
         <h1>{{ displayedText }}<span class="cursor" v-if="isCursorVisible">_</span></h1>
-        <button class="btn btn-primary">一起打球!!</button>
+        <a href="#/userindex/userproduct" class="btn btn-primary">一起打球!!</a>
       </div>
     </div>
   </div>
@@ -76,10 +76,10 @@ export default {
     margin-top: 0;
     color: white;
   }
-  button {
+  a {
     margin-top: 20px;
     width: 100px;
-    height: 50px;
+    height: 40px;
     margin-left: 200px;
     font-weight: 700;
   }
@@ -99,9 +99,9 @@ export default {
     h1 {
       font-size: 2.3em;
     }
-    button {
+    a {
     width: 100px;
-    height: 50px;
+    height: 40px;
     margin: 20px auto;
     font-weight: 700;
   }
