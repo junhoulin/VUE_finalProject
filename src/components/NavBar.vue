@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <nav class="navbar1 navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid indexnavbar">
     <img class="navbarimg" src="../assets/logo.png" alt="" href="#">
     <button class="navbar-toggler" type="button"
@@ -7,7 +7,7 @@
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse collapse1" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#/dashboard/controlpd">商品主頁</a>
@@ -19,7 +19,7 @@
           <a class="nav-link" href="#">庫存管理</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">優惠管理</a>
+          <a class="nav-link" href="#/dashboard/coupon">優惠管理</a>
         </li>
       </ul>
     </div>
@@ -37,14 +37,13 @@ export default {
 
 $maincolor:  rgba(48, 48, 48,);
 
-.navbar {
+.navbar1 {
   box-shadow: 0 4px 8px rgba(48, 48, 48, 0.2);
 }
-
-.navbar-collapse {
+.collapse1 {
   display: flex;
   justify-content: center;
-  transform: translateX(-10px);
+  transform: translateX(-50px);
 }
 
 .navbarimg {
@@ -65,7 +64,7 @@ $maincolor:  rgba(48, 48, 48,);
 }
 
 @media (max-width: 992px) {
-  .navbar-collapse {
+  .collapse1 {
     transform: translateX(0px);
   }
 }

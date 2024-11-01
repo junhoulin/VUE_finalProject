@@ -15,6 +15,10 @@ const routes = [
         path: 'controlpd',
         component: () => import('../views/ControlProduct.vue'),
       },
+      {
+        path: 'coupon',
+        component: () => import('../views/ControlCoupon.vue'),
+      },
     ],
   },
   {

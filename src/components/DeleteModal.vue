@@ -25,6 +25,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true" ref="modal">
 import modalMixin from '@/mixins/modalMixin';
 
 export default {
+  name: 'DeleteModal',
   data() {
     return {
       modal: {},

@@ -11,7 +11,7 @@ export default function model3d(container) {
   const loader = new GLTFLoader();
 
   loader.load(
-    '/model.gltf',
+    '/VUE_finalProject/model.gltf',
     (gltf) => {
       object = gltf.scene;
       scene.add(object);

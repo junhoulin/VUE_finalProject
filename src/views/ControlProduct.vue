@@ -7,18 +7,7 @@
     <div><div></div></div>
     </div></div>
   </LoadingApp>
-  <div class="content d-flex justify-content-between align-items-center">
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle " type="button"
-        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        分類
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
+  <div class="content d-flex justify-content-end align-items-center">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb mb-0">
         <li class="breadcrumb-item"><a href="#" style="color: rgb(68, 68, 51,0.8);"
@@ -193,7 +182,7 @@ export default {
 
 <style lang="scss">
 .content {
-  margin-top: 70px;
+  margin-top: 80px;
   .breadcrumb {
     margin-right: 30px;
   }

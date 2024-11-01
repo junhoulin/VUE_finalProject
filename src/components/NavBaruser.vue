@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar0 navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid indexnavbar">
     <a href="#/userindex/shoppingcart" class="shop1">
       <span aria-hidden="true">
@@ -13,7 +13,7 @@
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse collapse0" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#/userindex/userintrodution">主頁介紹</a>
@@ -48,11 +48,11 @@ export default {
 <style lang="scss">
 $maincolor: rgba(48, 48, 48,);
 
-.navbar {
+.navbar0 {
   box-shadow: 0 4px 8px rgba(48, 48, 48, 0.2);
 }
 
-.navbar-collapse {
+.collapse0 {
   display: flex;
   justify-content: center;
   transform: translateX(-10px);
