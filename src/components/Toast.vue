@@ -10,7 +10,7 @@
     </div>
   </div>
 </template>
-<script>
+<script scoped>
 import Toast from 'bootstrap/js/dist/toast';
 
 export default {

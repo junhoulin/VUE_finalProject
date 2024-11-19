@@ -7,9 +7,9 @@
     <div><div></div></div>
     </div></div>
   </LoadingApp>
-  <div class="container mt-5">
-    <form class="row justify-content-center">
-      <div class="col-md-4 form-background ">
+  <div class="container adminlogin ">
+    <form class="justify-content-center">
+      <div class="col-md-4 form-background mx-auto">
         <h1 class="h3 mb-4 font-weight-normal d-flex justify-content-center">後台管理登入</h1>
         <div class="mb-3">
           <label for="inputEmail" class="labinput mb-1">電子郵件
@@ -35,6 +35,12 @@
             />
           </label>
         </div>
+        <label for="rememberMe" class="form-check-label"><input
+          type="checkbox"
+          id="rememberMe"
+          class="form-check-input"
+          v-model="user.rememberMe"
+        />記住我</label>
         <div class="text-end mt-4">
           <button class="btn btn-md main-btn" type="submit" @click.prevent="signIn">登入</button>
         </div>
@@ -51,6 +57,7 @@ export default {
       user: {
         username: '',
         password: '',
+        rememberMe: false,
       },
       isLoading: false,
     };
@@ -73,7 +80,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $maincolor: #443;
 $border-radius: 95% 4% 97% 5% / 4% 94% 3% 95%;
 $border-radius-hover: 4% 95% 6% 95% / 95% 4% 92% 5%;
@@ -90,6 +97,10 @@ $border-hover: .2rem dashed;
   border: $border;
   border-radius: $border-radius;
   transition: all .2s linear;
+}
+
+.adminlogin{
+  margin-top: 100px;
 }
 
 form {

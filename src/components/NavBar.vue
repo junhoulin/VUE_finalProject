@@ -10,16 +10,17 @@
     <div class="collapse navbar-collapse collapse1" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#/dashboard/controlpd">商品主頁</a>
+          <a class="nav-link" aria-current="page"
+          href="#/dashboard/controlpd" @click="toggleNavbar">商品主頁</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">訂單列表</a>
+          <a class="nav-link" href="#" @click="toggleNavbar">訂單列表</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">庫存管理</a>
+          <a class="nav-link" href="#" @click="toggleNavbar">庫存管理</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/dashboard/coupon">優惠管理</a>
+          <a class="nav-link" href="#/dashboard/coupon" @click="toggleNavbar">優惠管理</a>
         </li>
       </ul>
     </div>
@@ -30,6 +31,12 @@
 <script>
 export default {
   name: 'DashBoard',
+  toggleNavbar() {
+    const navbar = document.getElementById('navbarNav');
+    if (navbar.classList.contains('show')) {
+      navbar.classList.remove('show');
+    }
+  },
 };
 </script>
 

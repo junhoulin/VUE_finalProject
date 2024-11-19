@@ -92,7 +92,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .content1 {
   margin-top: 80px;
   .breadcrumb {

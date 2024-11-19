@@ -35,6 +35,10 @@ const routes = [
         component: () => import('../views/UserIntrodution.vue'),
       },
       {
+        path: 'usercontactMe',
+        component: () => import('../views/UserContact.vue'),
+      },
+      {
         path: 'adminlogin',
         component: () => import('../views/AdminLogin.vue'),
       },

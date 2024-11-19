@@ -16,16 +16,17 @@
     <div class="collapse navbar-collapse collapse0" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#/userindex/userintrodution">主頁介紹</a>
+          <a class="nav-link" aria-current="page"
+          href="#/userindex/userintrodution" @click="toggleNavbar">主頁介紹</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/userindex/userproduct">商品主頁</a>
+          <a class="nav-link" href="#/userindex/userproduct" @click="toggleNavbar">商品主頁</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">聯絡我們</a>
+          <a class="nav-link" href="#/userindex/usercontactMe" @click="toggleNavbar">聯絡我們</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/userindex/adminlogin">後台登入</a>
+          <a class="nav-link" href="#/userindex/adminlogin" @click="toggleNavbar">後台登入</a>
         </li>
       </ul>
     </div>
@@ -42,6 +43,14 @@
 <script>
 export default {
   name: 'DashBoard',
+  methods: {
+    toggleNavbar() {
+      const navbar = document.getElementById('navbarNav');
+      if (navbar.classList.contains('show')) {
+        navbar.classList.remove('show');
+      }
+    },
+  },
 };
 </script>
 
@@ -55,7 +64,7 @@ $maincolor: rgba(48, 48, 48,);
 .collapse0 {
   display: flex;
   justify-content: center;
-  transform: translateX(-10px);
+  transition: none !important;
 }
 
 .navbarimg {

@@ -164,7 +164,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $maincolor:  rgba(48, 48, 48, 0.4);
 
 .modal{

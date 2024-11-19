@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="contents">
     <LoadingApp :active="isLoading">
       <div class="loadingio-spinner-double-ring-nq4q5u6dq7r"><div class="ldio-x2uulkbinbj">
       <div></div>
@@ -122,7 +122,7 @@ export default {
 </script>
 
 <style lang="scss">
-.content{
+.contents{
   margin-top: 100px;
 }
 .card {

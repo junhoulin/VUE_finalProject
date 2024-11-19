@@ -106,7 +106,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .cart-container {
   max-width: 800px;
   margin: 0 auto;

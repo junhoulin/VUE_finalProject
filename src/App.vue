@@ -10,4 +10,7 @@
   font-style: normal;
   cursor: url('./assets/pointer.ico'), auto;
 }
+body{
+  background-color: #F2F3EB;
+}
 </style>
