@@ -1,5 +1,5 @@
 <template>
-  <div class="container contact">
+  <div class="container contact animate__animated animate__backInLeft">
     <div class="col-md-6 inputform mx-auto">
       <h1>&bull; Keep in Touch &bull;</h1>
       <div class="underline"></div>

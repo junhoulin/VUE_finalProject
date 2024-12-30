@@ -9,13 +9,13 @@
       </swiper-slide>
       <swiper-slide>Slide 2</swiper-slide><swiper-slide>Slide 3</swiper-slide>
     </swiper>
-    <div class="item-list">
+    <div class="item-list animate__animated animate__backInDown">
       <div class="item">
         <div class="item-icon">
           <i class="fa-solid fa-medal fa-xl" style="font-size: 48px;"></i>
         </div>
         <div class="item-info">
-          <h5>1月熱血球員</h5>
+          <h5 >1月熱血球員</h5>
           <p>林晉豪</p>
           <a>總共報名 15 場</a>
         </div>

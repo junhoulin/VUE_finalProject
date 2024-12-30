@@ -7,7 +7,7 @@
     <div><div></div></div>
     </div></div>
   </LoadingApp>
-  <div class="container adminlogin ">
+  <div class="container adminlogin animate__animated animate__backInLeft">
     <form class="justify-content-center">
       <div class="col-md-4 form-background mx-auto">
         <h1 class="h3 mb-4 font-weight-normal d-flex justify-content-center">後台管理登入</h1>

@@ -8,7 +8,7 @@
       <div><div></div></div>
       </div></div>
     </LoadingApp>
-    <div class="container">
+    <div class="container animate__animated animate__backInLeft">
       <div class="row">
         <div class="col-md-3">
           <div class="list-group">
