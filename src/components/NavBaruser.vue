@@ -17,16 +17,20 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" aria-current="page"
-          href="#/userindex/userintrodution" @click="toggleNavbar">主頁介紹</a>
+          href="#/userindex/userintrodution" @click="toggleNavbar">
+          <i class="fa-solid fa-house"></i>主頁介紹</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/userindex/userproduct" @click="toggleNavbar">商品主頁</a>
+          <a class="nav-link" href="#/userindex/userproduct" @click="toggleNavbar">
+            <i class="fa-solid fa-volleyball"></i>商品主頁</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/userindex/usercontactMe" @click="toggleNavbar">聯絡我們</a>
+          <a class="nav-link" href="#/userindex/usercontactMe" @click="toggleNavbar">
+            <i class="fa-solid fa-comment"></i>聯絡我們</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/userindex/adminlogin" @click="toggleNavbar">後台登入</a>
+          <a class="nav-link" href="#/userindex/adminlogin" @click="toggleNavbar">
+            <i class="fa-solid fa-user"></i>後台登入</a>
         </li>
       </ul>
     </div>
@@ -76,6 +80,7 @@ $maincolor: rgba(48, 48, 48,);
   margin: 3px 10px;
   border-bottom: 2px solid transparent;
   transition: border-color 0.3s;
+  letter-spacing: 0.2em;
   &:hover {
     border-bottom: 2px solid #443;
   }

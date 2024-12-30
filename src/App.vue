@@ -11,6 +11,10 @@
   cursor: url('./assets/pointer.ico'), auto;
 }
 body{
-  background-color: #F2F3EB;
+  background-image: url(./assets/bgc.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #FFF9F1;
 }
 </style>

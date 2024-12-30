@@ -2,7 +2,9 @@
   <Navbar></Navbar>
   <ToastMessage></ToastMessage>
   <div>
-    <router-view/>
+    <div class="content">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -26,4 +28,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .content{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+  }
 </style>

@@ -30,7 +30,7 @@
             </a>
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 product-card">
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col" v-for="item in products" :key="item.id">
               <div class="card h-100 w-100" >
@@ -132,5 +132,10 @@ export default {
   background-color: #ccc;
   cursor: not-allowed;
   opacity: 0.7;
+}
+@media (max-width: 768px) {
+  .product-card {
+    margin-top: 30px;
+  }
 }
 </style>
